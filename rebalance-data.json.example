@@ -1,0 +1,20 @@
+{
+  "initialBalances": {
+    "cbBTC": 0.001,
+    "WETH": 0.1,
+    "cbXRP": 100,
+    "cbADA": 200,
+    "cbDOGE": 1000,
+    "AAVE": 1
+  },
+  "startDate": "2025-08-11T10:00:00.000Z",
+  "lastKnownPrices": {
+    "cbBTC": 60000,
+    "WETH": 3500,
+    "cbXRP": 0.6,
+    "cbADA": 0.4,
+    "cbDOGE": 0.1,
+    "AAVE": 150
+  },
+  "lastUpdated": "2025-08-11T10:00:00.000Z"
+}
