@@ -28,7 +28,7 @@ An automated cryptocurrency portfolio rebalancing bot that maintains target allo
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Saga-Labs/rebalancer.git
 cd crypto-rebalance-bot
 ```
 
