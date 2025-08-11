@@ -54,9 +54,9 @@ npm start
 
 The bot uses these configurable settings (set in your `.env` file):
 
-- **Deviation Threshold**: 3% (triggers rebalancing)
-- **Minimum Trade**: $3 USD  
-- **Check Interval**: 4 hours
+- **Deviation Threshold**: 3% (triggers rebalancing, was 5% by default)
+- **Minimum Trade**: $3 USD (lowered from $5 for better rebalancing)
+- **Check Interval**: 4 hours (14,400,000 milliseconds)
 - **Target Weights**: Equal allocation (16.67% each) or custom weights
 - **Slippage Tolerance**: 2% below quote for fast execution
 
@@ -83,10 +83,10 @@ node rebalance-bot.js
 
 The bot will:
 1. Check current portfolio allocation
-2. Compare against target weights (16.67% each)
-3. Execute trades if any token deviates >5% from target
+2. Compare against target weights (default: equal 16.67% each, or custom weights)
+3. Execute trades if any token deviates >3% from target (configurable)
 4. Send Telegram notifications (if configured)
-5. Wait 4 hours and repeat
+5. Wait 4 hours and repeat (configurable)
 
 ## Telegram Commands
 
@@ -113,21 +113,24 @@ If Telegram is configured, use these commands:
 
 ### Example Rebalancing
 ```
-Target: 20% BTC, 20% ETH, 15% others
+Target: 20% BTC, 20% ETH, 15% others (custom weights)
 
 Before:
-- WETH: 13.8% (underweight by 6.2%)
+- WETH: 13.8% (underweight by 6.2% - exceeds 3% threshold)
 - cbDOGE: 16.7% (overweight by 1.7%)
 - cbADA: 16.5% (overweight by 1.5%)
+- cbXRP: 16.4% (overweight by 1.4%)
+- AAVE: 16.6% (overweight by 1.6%)
 
 Action:
-- Sell 19.95 cbDOGE → 0.001048 WETH
-- Sell 5.31 cbADA → 0.000958 WETH
-- (+ other small sells)
+- Sell 19.95 cbDOGE → 0.001048 WETH ($4.60)
+- Sell 5.31 cbADA → 0.000958 WETH ($4.21)
+- Sell 1.24 cbXRP → 0.000900 WETH ($3.95)
+- Sell 0.014 AAVE → 0.000978 WETH ($4.29)
 
 After:
-- WETH: ~20% (balanced)
-- All others: closer to targets
+- WETH: ~20% (rebalanced to target)
+- All others: closer to 15% targets
 ```
 
 ## Performance Tracking
@@ -158,6 +161,22 @@ The bot tracks:
 - Test with small amounts first
 - Monitor bot performance regularly
 - Keep sufficient ETH for gas fees
+
+## Contributors
+
+### Lead Developer
+**[@martagonz](https://github.com/martagonz)** - Original creator and lead developer
+
+- 🏗️ **Architecture & Design**: Built the entire rebalancing system from scratch
+- 🤖 **Smart Logic**: Implemented custom weight allocation and intelligent WETH handling
+- 📊 **Performance Tracking**: Created HODL comparison and analytics system
+- 🔗 **Integrations**: CoW Protocol, Telegram Bot, and Binance API implementations
+- 🛡️ **Security**: MEV protection and comprehensive error handling
+- 📱 **User Experience**: Real-time notifications and status commands
+
+*Built with expertise in DeFi protocols, automated trading systems, and blockchain development.*
+
+---
 
 ## Disclaimer
 
