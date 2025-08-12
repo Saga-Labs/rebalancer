@@ -52,6 +52,8 @@ npm start
 
 The bot now includes a simple web interface for easier management:
 
+![Web Interface Dashboard](assets/screenshots/web-dashboard.png)
+
 1. Start the web server:
 ```bash
 npm run web
@@ -65,6 +67,9 @@ The web interface allows you to:
 - Trigger manual rebalancing
 - Update configuration settings
 - Monitor HODL vs rebalancing performance
+
+#### Portfolio Breakdown
+![Portfolio Breakdown](assets/screenshots/portfolio-table.png)
 
 
 
@@ -99,6 +104,8 @@ Run the bot:
 node rebalance-bot.js
 ```
 
+![Terminal Output](assets/screenshots/terminal-output.png)
+
 The bot will:
 1. Check current portfolio allocation
 2. Compare against target weights (default: equal 16.67% each, or custom weights)
@@ -115,6 +122,8 @@ If Telegram is configured, use these commands:
 - `/portfolio` - Portfolio overview with HODL performance
 - `/reset_hodl` - Reset HODL baseline to current balances
 - `/debug` - Bot configuration and authorization info
+
+![Telegram Notifications](assets/screenshots/telegram-notifications.png)
 
 ## How It Works
 
