@@ -48,6 +48,24 @@ cp .env.example .env
 npm start
 ```
 
+### Web Interface
+
+The bot now includes a simple web interface for easier management:
+
+1. Start the web server:
+```bash
+npm run web
+```
+
+2. Open your browser to `http://localhost:3000`
+
+The web interface allows you to:
+- View real-time portfolio status and performance
+- Start/stop the bot
+- Trigger manual rebalancing
+- Update configuration settings
+- Monitor HODL vs rebalancing performance
+
 
 
 ## Configuration

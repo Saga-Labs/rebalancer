@@ -6,7 +6,7 @@ import fs from 'fs';
 
 global.fetch = fetch;
 
-class RebalanceBot {
+export class RebalanceBot {
   constructor() {
     this.provider = new ethers.JsonRpcProvider(CONFIG.BASE_RPC_URL);
     this.wallet = new ethers.Wallet(process.env.REBALANCE_PRIVATE_KEY || CONFIG.PRIVATE_KEY, this.provider);
@@ -1046,7 +1046,10 @@ async function main() {
   await bot.start();
 }
 
-main().catch(error => {
-  console.error('💥 Fatal error:', error);
-  process.exit(1);
-});
+// Only run main if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(error => {
+    console.error('💥 Fatal error:', error);
+    process.exit(1);
+  });
+}

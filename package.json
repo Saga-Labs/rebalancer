@@ -8,6 +8,7 @@
     "start": "node rebalance-bot.js",
     "dev": "node --watch rebalance-bot.js",
     "rebalance": "node rebalance-bot.js",
+    "web": "node web-server.js",
     "test": "echo \"Bot is ready! Run: npm start\" && exit 0"
   },
   "keywords": [
